@@ -1,22 +1,114 @@
-# T3 Stack
-# Project Management using Nextjs14, Bun, Clerk | Authentication and User Management , Drizzle with libSQL, Turso, Tailwindm, shadcn
+# Tasky - Modern Project Management System
 
+A modern, full-stack project management system built with the T3 Stack, featuring real-time updates, beautiful UI, and seamless collaboration.
 
-### Features in this application.
+## 🚀 Tech Stack
+
+- **Framework:** Next.js 14
+- **Authentication:** Clerk
+- **Database:** Turso (LibSQL)
+- **ORM:** Drizzle
+- **Styling:** Tailwind CSS, shadcn/ui
+- **State Management:** Zustand
+- **Package Manager:** Bun
+- **API:** tRPC
+
+### Features
 - 🏢 Authentication, User Management and Organization
 - 💻 Role-based Access
 - 📢 Get leads from funnels
-- 🎨 Task board
+- 🎨 Task board with drag-and-drop
 - 📂 Project management system
-- 🔗 Logs activity
+- 🔗 Activity logging
 - ☀️ Light & Dark mode
 
-![Tasky · 01 28 · 08-12 (1)](https://github.com/user-attachments/assets/f08300ed-bb11-45b9-b6d9-7cc559666b0d)
-![Tasky · 01 28 · 08-12](https://github.com/user-attachments/assets/a057c405-7482-4da0-8c58-a56c50284534)
-![Ismael _ Tasky · 01 27 · 08-12](https://github.com/user-attachments/assets/abb24ad1-6777-4a12-bb60-0626bd4083c0)
-![Ismael _ Tasky](https://github.com/user-attachments/assets/eb46fb19-03df-4c89-a950-597170d613e1)
-![Tasky](https://github.com/user-attachments/assets/8485ab28-5ab2-4b6c-a95d-8f4f03dd3168)
+## 🛠️ Setup & Development
 
-## How do I deploy this?
+### Prerequisites
+- Node.js 18+ and Bun installed
+- Clerk account for authentication
+- Turso account for database
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/donwolfonline/tasky.git
+cd tasky
+```
+
+2. Install dependencies:
+```bash
+bun install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env
+```
+
+4. Configure your `.env` file with:
+- Clerk API keys (from https://clerk.com/)
+- Turso database credentials (from https://turso.tech/)
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
+CLERK_SECRET_KEY=your_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
+TURSO_DATABASE_URL=your_database_url
+TURSO_AUTH_TOKEN=your_auth_token
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+5. Set up the database:
+```bash
+bun run db:generate  # Generate migrations
+bun run db:push     # Push migrations to database
+```
+
+6. Start the development server:
+```bash
+bun dev
+```
+
+The application will be available at `http://localhost:3000`
+
+## 🌟 Features in Detail
+
+### Authentication & Organizations
+- Sign up/Sign in with email or social providers
+- Organization creation and management
+- Role-based access control
+
+### Project Management
+- Create and manage boards
+- Add lists and cards
+- Drag-and-drop interface
+- Real-time updates
+
+### Activity Tracking
+- Audit logs for all actions
+- User activity monitoring
+- Change history
+
+## 📦 Deployment
+
+You can deploy this application on:
+- [Vercel](https://create.t3.gg/en/deployment/vercel)
+- [Netlify](https://create.t3.gg/en/deployment/netlify)
+- [Docker](https://create.t3.gg/en/deployment/docker)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with the [T3 Stack](https://create.t3.gg/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Database hosting by [Turso](https://turso.tech/)
+- Authentication by [Clerk](https://clerk.com/)
