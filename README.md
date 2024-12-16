@@ -1,6 +1,6 @@
 # Taskyit - Modern Task Management System
 
-A modern, full-stack project management system built with the T3 Stack, featuring real-time updates, beautiful UI, and seamless collaboration.
+A modern, full-stack task management system built with the T3 Stack, featuring real-time updates, beautiful UI, and seamless collaboration.
 
 ## 🚀 Tech Stack
 
@@ -18,7 +18,7 @@ A modern, full-stack project management system built with the T3 Stack, featurin
 - 💻 Role-based Access
 - 📢 Get leads from funnels
 - 🎨 Task board with drag-and-drop
-- 📂 Project management system
+- 📂 Task management system
 - 🔗 Activity logging
 - ☀️ Light & Dark mode
 
@@ -80,7 +80,7 @@ The application will be available at `http://localhost:3000`
 - Organization creation and management
 - Role-based access control
 
-### Project Management
+### Task Management
 - Create and manage boards
 - Add lists and cards
 - Drag-and-drop interface
