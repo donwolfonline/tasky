@@ -74,10 +74,10 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
               onKeyDown={handleTextareaKeyDown}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className={cn(
-                "resize-none shadow-sm outline-none ring-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0",
-              )}
+              className="resize-none shadow-sm outline-none ring-0 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
               placeholder="Enter a title for this card..."
+              disabled={isPending}
+              autoFocus
             />
             {error?.data?.zodError?.fieldErrors.title && (
               <span className="mb-8 text-xs text-red-500">
@@ -88,7 +88,15 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
               <Button size="sm" type="submit" disabled={isPending}>
                 {isPending ? "Add card..." : "Add card"}
               </Button>
-              <Button onClick={resetForm} size="sm" variant="ghost">
+              <Button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  resetForm();
+                }} 
+                size="sm" 
+                variant="ghost"
+                type="button"
+              >
                 <X className="h-5 w-5" />
               </Button>
             </div>
