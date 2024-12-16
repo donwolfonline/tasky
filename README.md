@@ -1,4 +1,4 @@
-# Taskyit - Modern Project Management System
+# Taskyit - Modern Task Management System
 
 A modern, full-stack project management system built with the T3 Stack, featuring real-time updates, beautiful UI, and seamless collaboration.
 
