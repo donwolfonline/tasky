@@ -2,7 +2,6 @@ import * as React from "react";
 import { useCallback } from "react";
 import { cn } from "~/lib/utils";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   debounceMs?: number;
 }
@@ -12,23 +11,17 @@ const focusStyles = "focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset
 
 const Textarea = React.memo(React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, onChange, debounceMs = 100, ...props }, ref) => {
-    const [value, setValue] = React.useState(props.defaultValue || props.value || "");
+    const [value, setValue] = React.useState(props.defaultValue ?? props.value ?? "");
     
-    // Debounced onChange handler
-    const debouncedOnChange = useCallback(
-      (() => {
-        let timeout: NodeJS.Timeout;
-        return (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-          clearTimeout(timeout);
-          setValue(e.target.value);
-          
-          timeout = setTimeout(() => {
-            onChange?.(e);
-          }, debounceMs);
-        };
-      })(),
-      [onChange, debounceMs]
-    );
+    const debouncedOnChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      let timeout: NodeJS.Timeout;
+      clearTimeout(timeout);
+      setValue(e.target.value);
+      
+      timeout = setTimeout(() => {
+        onChange?.(e);
+      }, debounceMs);
+    }, [onChange, debounceMs]);
 
     return (
       <textarea
