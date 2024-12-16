@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { SiteConfig } from "~/config/site";
@@ -7,19 +6,43 @@ import { Button } from "~/components/ui/button";
 import { BorderBeam } from "~/components/border-beam";
 import SparklesText from "~/components/sparkles-text";
 
-import landingImg from "./landing-img.png";
-
 export default function MarketingPage() {
   return (
-    <div className="flex flex-col items-center  justify-center">
+    <div className="flex flex-col items-center justify-center">
       <div className={cn("flex flex-col mb-4 items-center justify-center")}>
         <SparklesText text={SiteConfig.title} />
         <h1 className="mb-6 text-center text-3xl md:text-6xl">Supercharge Team Productivity</h1>
       </div>
 
-      <div className="relative  h-[512px]  rounded-xl">
+      <div className="relative h-[512px] w-full max-w-5xl rounded-xl bg-gradient-to-br from-muted/50 to-muted p-8">
         <BorderBeam />
-        <Image src={landingImg} alt="Tasky Board" priority />
+        <div className="grid h-full grid-cols-4 gap-4">
+          <div className="rounded-lg bg-background/80 p-4">
+            <h3 className="mb-4 font-semibold">New Tasks</h3>
+            <div className="space-y-2">
+              <div className="h-16 rounded-md bg-muted/50"></div>
+              <div className="h-16 rounded-md bg-muted/50"></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-background/80 p-4">
+            <h3 className="mb-4 font-semibold">In Progress</h3>
+            <div className="space-y-2">
+              <div className="h-16 rounded-md bg-muted/50"></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-background/80 p-4">
+            <h3 className="mb-4 font-semibold">Review</h3>
+            <div className="space-y-2">
+              <div className="h-16 rounded-md bg-muted/50"></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-background/80 p-4">
+            <h3 className="mb-4 font-semibold">Done</h3>
+            <div className="space-y-2">
+              <div className="h-16 rounded-md bg-muted/50"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div
