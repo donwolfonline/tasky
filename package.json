@@ -18,7 +18,7 @@
     "@clerk/nextjs": "^5.3.0",
     "@clerk/themes": "^2.1.19",
     "@hello-pangea/dnd": "^16.6.0",
-    "@libsql/client": "^0.8.1",
+    "@libsql/client": "^0.3.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -75,6 +75,11 @@
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.9",
     "typescript": "^5.5.4"
+  },
+  "overrides": {
+    "@libsql/client": {
+      "os": ["linux"]
+    }
   },
   "ct3aMetadata": {
     "initVersion": "7.36.2"
