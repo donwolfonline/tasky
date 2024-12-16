@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "postinstall": "lefthook install",
     "build": "next build",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -71,7 +70,6 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
     "eslint-plugin-drizzle": "^0.2.3",
-    "lefthook": "^1.7.12",
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
