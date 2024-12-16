@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import { cn } from "~/lib/utils";
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -12,16 +12,26 @@ const focusStyles = "focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset
 const Textarea = React.memo(React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, onChange, debounceMs = 100, ...props }, ref) => {
     const [value, setValue] = React.useState(props.defaultValue ?? props.value ?? "");
+    const timeoutRef = useRef<NodeJS.Timeout>();
     
     const debouncedOnChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      let timeout: NodeJS.Timeout;
-      clearTimeout(timeout);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
       setValue(e.target.value);
       
-      timeout = setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         onChange?.(e);
       }, debounceMs);
     }, [onChange, debounceMs]);
+
+    React.useEffect(() => {
+      return () => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+      };
+    }, []);
 
     return (
       <textarea
