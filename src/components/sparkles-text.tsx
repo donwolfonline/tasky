@@ -2,10 +2,9 @@
 
 import { useEffect, useState, type CSSProperties, type ReactElement } from "react";
 import { motion } from "framer-motion";
-
 import { cn } from "~/lib/utils";
 
-interface Sparkle {
+interface SparkleType {
   id: string;
   x: string;
   y: string;
@@ -17,22 +16,6 @@ interface Sparkle {
 
 interface SparklesTextProps {
   /**
-   * @default <div />
-   * @type ReactElement
-   * @description
-   * The component to be rendered as the text
-   * */
-  as?: ReactElement;
-
-  /**
-   * @default ""
-   * @type string
-   * @description
-   * The className of the text
-   */
-  className?: string;
-
-  /**
    * @required
    * @type string
    * @description
@@ -41,12 +24,12 @@ interface SparklesTextProps {
   text: string;
 
   /**
-   * @default 10
-   * @type number
+   * @default ""
+   * @type string
    * @description
-   * The count of sparkles
-   * */
-  sparklesCount?: number;
+   * The className of the text
+   */
+  className?: string;
 
   /**
    * @default "{first: '#9E7AFF', second: '#FE8BBB'}"
@@ -58,6 +41,14 @@ interface SparklesTextProps {
     first: string;
     second: string;
   };
+
+  /**
+   * @default 10
+   * @type number
+   * @description
+   * The count of sparkles
+   * */
+  sparklesCount?: number;
 }
 
 const SparklesText: React.FC<SparklesTextProps> = ({
@@ -66,11 +57,11 @@ const SparklesText: React.FC<SparklesTextProps> = ({
   className,
   sparklesCount = 10,
   ...props
-}) => {
-  const [sparkles, setSparkles] = useState<Sparkle[]>([]);
+}: SparklesTextProps) => {
+  const [sparkles, setSparkles] = useState<SparkleType[]>([]);
 
   useEffect(() => {
-    const generateStar = (): Sparkle => {
+    const generateStar = (): SparkleType => {
       const starX = `${Math.random() * 100}%`;
       const starY = `${Math.random() * 100}%`;
       const color = Math.random() > 0.5 ? colors.first : colors.second;
@@ -106,14 +97,8 @@ const SparklesText: React.FC<SparklesTextProps> = ({
 
   return (
     <div
-      className={cn("text-6xl font-bold", className)}
+      className={cn("text-6xl font-bold sparkles-text", className)}
       {...props}
-      style={
-        {
-          "--sparkles-first-color": `${colors.first}`,
-          "--sparkles-second-color": `${colors.second}`,
-        } as CSSProperties
-      }
     >
       <span className="relative inline-block">
         {sparkles.map((sparkle) => (
@@ -125,7 +110,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
   );
 };
 
-const Sparkle: React.FC<Sparkle> = ({ id, x, y, color, delay, scale }) => {
+const Sparkle: React.FC<SparkleType> = ({ id, x, y, color, delay, scale }) => {
   return (
     <motion.svg
       key={id}

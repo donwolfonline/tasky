@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { env } from "~/env";
 import { recursive } from "~/fonts";
@@ -13,8 +13,11 @@ import { ThemeProvider } from "~/components/theme-provider";
 export const metadata: Metadata = {
   title: {
     default: SiteConfig.title,
-    template: "%s | " + SiteConfig.title,
+    template: `%s | ${SiteConfig.title}`,
   },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
+  ),
   description: SiteConfig.description,
   icons: [
     {
