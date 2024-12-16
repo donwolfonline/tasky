@@ -1,4 +1,4 @@
-# Tasky - Modern Project Management System
+# Taskyit - Modern Project Management System
 
 A modern, full-stack project management system built with the T3 Stack, featuring real-time updates, beautiful UI, and seamless collaboration.
 
@@ -33,8 +33,8 @@ A modern, full-stack project management system built with the T3 Stack, featurin
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/donwolfonline/tasky.git
-cd tasky
+git clone https://github.com/donwolfonline/taskyit.git
+cd taskyit
 ```
 
 2. Install dependencies:
