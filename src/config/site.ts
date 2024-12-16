@@ -1,5 +1,5 @@
 export const SiteConfig = {
-  title: "Tasky",
+  title: "Taskyit",
   description: "Simplify task management, boost collaboration, and achieve more together",
 } as const;
 
